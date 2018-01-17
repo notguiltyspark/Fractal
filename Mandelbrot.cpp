@@ -1,0 +1,32 @@
+#include "Mandelbrot.h"
+
+
+
+Mandelbrot::Mandelbrot()
+{
+}
+
+
+Mandelbrot::~Mandelbrot()
+{
+}
+
+int Mandelbrot::getIterations(double x, double y) {
+
+	std::complex<decltype(x)> c{ x,y };
+	std::complex<decltype(x)> z{ 0,0 };
+
+	int iterations = 0;
+
+	while (iterations < MAX_ITERATIONS) {
+		z = z*z + c;
+
+		if (abs(z) > 2)
+			break;
+
+		iterations++;
+
+	}
+
+	return iterations;
+}
